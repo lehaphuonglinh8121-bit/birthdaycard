@@ -5,6 +5,54 @@
 <title>Thiệp Sinh Nhật</title>
 
 <style>
+    /* Màn hình mở thiệp */
+.open-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffe6f0, #fff);
+}
+
+.open-screen button {
+  font-size: 22px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  background: #ff6fa5;
+  color: white;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+}
+
+/* Hiệu ứng nhấp nháy nhẹ */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* Ẩn thiệp ban đầu */
+.hidden {
+  display: none;
+}
+
+/* Hiệu ứng thiệp xuất hiện */
+.card {
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 body {
     background: white;
     font-family: "Times New Roman", serif;
@@ -78,10 +126,19 @@ p {
 }
 </style>
 </head>
+<script>
+function openCard() {
+  document.getElementById("openScreen").style.display = "none";
+  document.getElementById("card").classList.remove("hidden");
+}
+</script>
 
 <body>
+    <div class="open-screen" id="openScreen">
+  <button onclick="openCard()">💌 Hãy mở thiệp</button>
+</div>
 
-<div class="card">
+<div class="card hidden" id="card">
     <h1>🎉 Chúc Mừng Sinh Nhật 🎉</h1>
 
     <div class="teacher">
@@ -91,37 +148,31 @@ p {
     <!-- ẢNH -->
     <img src="co_giao.png" alt="Cô giáo" class="photo">
 
-    <p>
-        Nhân ngày sinh nhật của cô,<br>
-        chúng em kính chúc cô thật nhiều sức khỏe,<br>
-        luôn vui vẻ, hạnh phúc và tràn đầy nhiệt huyết<br>
-        trên con đường trồng người cao quý 🌸
-    </p>
-
-    <p>
-        Cô mãi là người truyền cảm hứng  
-        và là tấm gương sáng cho chúng em noi theo.
-    </p>
+  <div class="poem">
+  <p>Sinh nhật về, chúc cô Trà yêu 🌸</p>
+  <p>Bình yên theo bước mỗi sớm chiều</p>
+  <p>Tuổi mới thêm nhiều điều hạnh phúc</p>
+  <p>Nụ cười ở lại mãi trong tim 💝</p>
+</div>
 
     <div class="from">
-        💐 Học trò của cô 💐 Minh Anh
-    </div>
+        💐 Yêu cô,suốt đời yêu thương.
 </div>
 
 <script>
-const flowers = ["🌸","🌼","🌷"];
+const hearts = ["💖","💗","💝","💕"];
 
 setInterval(() => {
-    const flower = document.createElement("div");
-    flower.className = "flower";
-    flower.innerText = flowers[Math.floor(Math.random()*flowers.length)];
-    flower.style.left = Math.random()*window.innerWidth + "px";
-    flower.style.fontSize = (20 + Math.random()*20) + "px";
-    flower.style.animationDuration = (5 + Math.random()*5) + "s";
-    document.body.appendChild(flower);
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (18 + Math.random() * 22) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.body.appendChild(heart);
 
-    setTimeout(() => flower.remove(), 10000);
-}, 600);
+    setTimeout(() => heart.remove(), 9000);
+}, 500);
 </script>
 
 </body>
