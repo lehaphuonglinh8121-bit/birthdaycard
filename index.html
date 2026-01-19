@@ -149,7 +149,7 @@ function openCard() {
     <img src="co_giao.png" alt="Cô giáo" class="photo">
 
   <div class="poem">
-  <p>Sinh nhật về, chúc cô Trà yêu 🌸</p>
+  <p>Sinh nhật về,con chúc cô yêu 🌸</p>
   <p>Bình yên theo bước mỗi sớm chiều</p>
   <p>Tuổi mới thêm nhiều điều hạnh phúc</p>
   <p>Nụ cười ở lại mãi trong tim 💝</p>
@@ -160,19 +160,21 @@ function openCard() {
 </div>
 
 <script>
-const hearts = ["💖","💗","💝","💕"];
+const flowers = ["🌸", "🌼", "🌷", "💮"];
 
 setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.fontSize = (18 + Math.random() * 22) + "px";
-    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
-    document.body.appendChild(heart);
+  const flower = document.createElement("div");
+  flower.className = "flower";
+  flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+  flower.style.left = Math.random() * window.innerWidth + "px";
+  flower.style.fontSize = (18 + Math.random() * 22) + "px";
+  flower.style.animationDuration = (5 + Math.random() * 5) + "s";
+  document.body.appendChild(flower);
 
-    setTimeout(() => heart.remove(), 9000);
-}, 500);
+  setTimeout(() => flower.remove(), 10000);
+}, 600);
+</script>
+
 </script>
 
 </body>
