@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Thiệp Sinh Nhật</title>
+
+<style>
+body {
+    background: white;
+    font-family: "Times New Roman", serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Thiệp */
+.card {
+    background: #fff8f3;
+    width: 420px;
+    padding: 30px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    animation: fadeIn 2s ease;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+h1 {
+    color: #b85c38;
+}
+
+.teacher {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* Ảnh cô giáo */
+.photo {
+    width: 160px;
+    border-radius: 16px;
+    margin: 15px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.from {
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Hoa rơi */
+.flower {
+    position: fixed;
+    top: -20px;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🎉 Chúc Mừng Sinh Nhật 🎉</h1>
+
+    <div class="teacher">
+        Kính gửi Cô giáo kính yêu
+    </div>
+
+    <!-- ẢNH -->
+    <img src="co_giao.png" alt="Cô giáo" class="photo">
+
+    <p>
+        Nhân ngày sinh nhật của cô,<br>
+        chúng em kính chúc cô thật nhiều sức khỏe,<br>
+        luôn vui vẻ, hạnh phúc và tràn đầy nhiệt huyết<br>
+        trên con đường trồng người cao quý 🌸
+    </p>
+
+    <p>
+        Cô mãi là người truyền cảm hứng  
+        và là tấm gương sáng cho chúng em noi theo.
+    </p>
+
+    <div class="from">
+        💐 Học trò của cô 💐 Minh Anh
+    </div>
+</div>
+
+<script>
+const flowers = ["🌸","🌼","🌷"];
+
+setInterval(() => {
+    const flower = document.createElement("div");
+    flower.className = "flower";
+    flower.innerText = flowers[Math.floor(Math.random()*flowers.length)];
+    flower.style.left = Math.random()*window.innerWidth + "px";
+    flower.style.fontSize = (20 + Math.random()*20) + "px";
+    flower.style.animationDuration = (5 + Math.random()*5) + "s";
+    document.body.appendChild(flower);
+
+    setTimeout(() => flower.remove(), 10000);
+}, 600);
+</script>
+
+</body>
+</html>
